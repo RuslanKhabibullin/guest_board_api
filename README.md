@@ -1,6 +1,6 @@
 # Guest Board
 
-Welcome to your new Hanami project!
+Simple API for chat with one common room. Stack: `Ruby`, `Hanami` framework
 
 ## Setup
 

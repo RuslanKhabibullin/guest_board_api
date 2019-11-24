@@ -1,0 +1,3 @@
+project=guest_board
+test=rspec
+template=erb

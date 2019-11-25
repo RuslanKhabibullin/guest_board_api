@@ -1,3 +1,5 @@
+[![Build Status](https://semaphoreci.com/api/v1/khabibullin_ruslan/guest_board_api/branches/master/badge.svg)](https://semaphoreci.com/khabibullin_ruslan/guest_board_api)
+
 # Guest Board
 
 Simple API for chat with one common room. Stack: `Ruby`, `Hanami` framework

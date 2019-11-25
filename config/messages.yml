@@ -1,0 +1,5 @@
+en:
+  errors:
+    email?: must be an valid email
+    unique_email?: must be an unique
+    long_password?: must contain at least 8 symbols

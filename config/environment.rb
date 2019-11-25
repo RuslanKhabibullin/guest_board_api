@@ -8,21 +8,8 @@ Hanami.configure do
   mount Api::Application, at: '/api'
 
   model do
-    ##
-    # Database adapter
-    #
-    # Available options:
-    #
-    #  * SQL adapter
-    #    adapter :sql, 'sqlite://db/guest_board_development.sqlite3'
-    #    adapter :sql, 'postgresql://localhost/guest_board_development'
-    #    adapter :sql, 'mysql://localhost/guest_board_development'
-    #
     adapter :sql, ENV.fetch('DATABASE_URL')
 
-    ##
-    # Migrations
-    #
     migrations 'db/migrations'
     schema     'db/schema.sql'
   end
@@ -30,12 +17,10 @@ Hanami.configure do
   mailer do
     root 'lib/guest_board/mailers'
 
-    # See https://guides.hanamirb.org/mailers/delivery
     delivery :test
   end
 
   environment :development do
-    # See: https://guides.hanamirb.org/projects/logging
     logger level: :debug
   end
 

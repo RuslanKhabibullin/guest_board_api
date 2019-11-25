@@ -7,7 +7,7 @@ module Api
       predicates CustomPredicates
 
       validations do
-        required(:email) { filled? & str? & email? && unique_email? }
+        required(:email).filled(:str?, :email?) { unique_email? }
         required(:password) { filled? & str? & long_password? }
       end
     end

@@ -9,6 +9,7 @@ module Api
       load_paths << %w[
         controllers
         validations
+        presenters
       ]
 
       routes 'config/routes'
@@ -16,10 +17,10 @@ module Api
       default_request_format :json
       default_response_format :json
 
-      middleware.use Rack::Cors do
+      middleware.prepend Rack::Cors do
         allow do
           origins ENV.fetch('FRONTEND_URL', '*')
-          resource '*', headers: :any, methods: %i[get post options]
+          resource '*', headers: :any, methods: %i[get post put patch delete options head]
         end
       end
 

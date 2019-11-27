@@ -4,6 +4,7 @@ module Api
       class Create
         include Api::Action
         include Api::Controllers::Defaults
+        include Api::Controllers::Authentication::Skip
 
         def call(params)
           validation = Api::Validations::Signup.new(params[:user]).validate

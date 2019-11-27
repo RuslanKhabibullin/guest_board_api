@@ -23,6 +23,10 @@ module Api
           resource '*', headers: :any, methods: %i[get post put patch delete options head]
         end
       end
+      middleware.use Warden::Manager do |manager|
+        manager.default_strategies :jwt_strategy
+        manager.failure_app = ::Api::Controllers::Unauthorized
+      end
 
       security.x_frame_options 'DENY'
       security.x_content_type_options 'nosniff'
@@ -45,8 +49,7 @@ module Api
       }
 
       controller.prepare do
-        # include MyAuthentication # included in all the actions
-        # before :authenticate!    # run an authentication before callback
+        include ::Api::Controllers::Authentication
       end
     end
 

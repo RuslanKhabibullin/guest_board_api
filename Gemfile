@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rack-cors'
 gem 'bcrypt'
 gem 'jwt'
+gem 'warden'
 
 group :development do
   gem 'shotgun', platforms: :ruby

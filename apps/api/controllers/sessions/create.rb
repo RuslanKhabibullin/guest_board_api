@@ -4,6 +4,7 @@ module Api
       class Create
         include Api::Action
         include Api::Controllers::Defaults
+        include Api::Controllers::Authentication::Skip
 
         def call(params)
           validation = Api::Validations::Signin.new(params[:user]).validate
@@ -13,7 +14,7 @@ module Api
           if session_creation_service.successful?
             status 201, { token: session_creation_service.token }.to_json
           else
-            status 401, error_json('Unauthorized user')
+            status 401, error_json('unauthorized user')
           end
         end
       end

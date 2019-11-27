@@ -36,7 +36,7 @@ describe Api::Controllers::Sessions::Create do
     let(:expected_response) do
       {
         'error' => {
-          'base' => ['Unauthorized user']
+          'base' => ['unauthorized user']
         }
       }
     end

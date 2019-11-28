@@ -20,6 +20,10 @@ module Api
 
       private
 
+      def current_user
+        authenticator.user
+      end
+
       def authenticate!
         authenticator.authenticate!
       end

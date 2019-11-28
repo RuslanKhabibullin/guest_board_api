@@ -4,15 +4,13 @@ module Api
       class Index
         include Api::Action
 
-        def call(_params)
-          status 200, JSON.generate(MessageRepository.new.all.map do |message|
-              {
-                id: message.id,
-                user_id: message.user_id,
-                content: message.content
-              }
-            end
+        def call(params)
+          messages = MessageRepository.new.load_with_users(
+            limit: (params[:limit] || 20).to_i,
+            page: (params[:page] || 1).to_i
           )
+
+          status 200, Api::Presenter::Message::CollectionPresenter.new(messages).to_json
         end
       end
     end

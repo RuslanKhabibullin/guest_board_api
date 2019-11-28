@@ -1,6 +1,6 @@
 class JWTStrategy < Warden::Strategies::Base
   def valid?
-    request.env['Authorization'].present?
+    request.env['HTTP_AUTHORIZATION'].present?
   end
 
   def authenticate!
@@ -18,8 +18,8 @@ class JWTStrategy < Warden::Strategies::Base
   private
 
   def claims
-    strategy, token = request.env['Authorization'].split(' ')
+    strategy, token = request.env['HTTP_AUTHORIZATION'].split(' ')
     retun nil unless (strategy || '').casecmp('bearer')
-    ::JWT::Wrapper.decode(token)
+    ::JWT::Wrapper.decode(token).symbolize_keys
   end
 end

@@ -1,5 +1,9 @@
 [![Build Status](https://semaphoreci.com/api/v1/khabibullin_ruslan/guest_board_api/branches/master/badge.svg)](https://semaphoreci.com/khabibullin_ruslan/guest_board_api)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/132ebef0e33577fb9a01/maintainability)](https://codeclimate.com/github/RuslanKhabibullin/guest_board_api/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/132ebef0e33577fb9a01/test_coverage)](https://codeclimate.com/github/RuslanKhabibullin/guest_board_api/test_coverage)
+
 # Guest Board
 
 Simple API for chat with one common room. Stack: `Ruby`, `Hanami` framework

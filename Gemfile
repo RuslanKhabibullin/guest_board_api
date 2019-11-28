@@ -25,4 +25,5 @@ group :test do
   gem 'rspec'
   gem 'database_cleaner'
   gem 'rack-test'
+  gem 'simplecov'
 end

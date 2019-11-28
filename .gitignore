@@ -4,3 +4,4 @@
 .env.*.local
 .bundle
 .ruby-version
+coverage

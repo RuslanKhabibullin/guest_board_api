@@ -13,4 +13,10 @@ class MessageRepository < Hanami::Repository
       .map_to(Message)
       .to_a
   end
+
+  def load_user(message, user: nil)
+    user ||= UserRepository.new.find(message.user_id)
+
+    Message.new(message.to_h.merge(user: user))
+  end
 end

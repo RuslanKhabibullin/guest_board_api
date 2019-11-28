@@ -6,11 +6,14 @@ module Api
       end
 
       def errors
-        return { error: @error.messages } if @error.respond_to?(:messages)
-        return { error: { base: @error.errors } } if @error.respond_to?(:errors)
         return { error: { base: @error } } if @error.is_a?(Array)
 
-        { error: { base: [@error] } }
+        if @error.respond_to?(:messages) || @error.respond_to?(:errors)
+          errors = @error.respond_to?(:messages) ? @error.messages : @error.errors
+          { error: errors }
+        else
+          { error: { base: [@error] } }
+        end
       end
 
       def to_json(*_args)

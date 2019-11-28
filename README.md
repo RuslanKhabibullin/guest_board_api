@@ -4,7 +4,11 @@
 
 # Guest Board
 
-Simple API for chat with one common room. Stack: `Ruby`, `Hanami` framework
+Simple API for chat with one common room. Stack:
+- `Ruby` language
+- `Hanami` framework
+- `JWT` authentication strategy
+- `CORS` protection
 
 ## Setup
 

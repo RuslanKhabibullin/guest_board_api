@@ -7,7 +7,7 @@ module Api
         include Api::Controllers::Authentication::Skip
 
         def call(params)
-          validation = Api::Validations::Signup.new(params[:user]).validate
+          validation = Api::Validations::Signup.new(params).validate
           return status 422, error_json(validation) unless validation.success?
 
           user_creation_service = ::CreateUser.new(params[:user]).call

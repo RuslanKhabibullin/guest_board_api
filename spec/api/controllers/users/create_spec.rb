@@ -8,12 +8,30 @@ describe Api::Controllers::Users::Create do
     let(:expected_body) do
       {
         'error' => {
-          'email' => [
-            'is missing', 'must be an valid email', 'must be an unique'
-          ],
-          'password' => [
-            'is missing', 'must contain at least 8 symbols'
-          ]
+          'user' => ['is missing']
+        }
+      }
+    end
+
+    it 'responds with 422 status and errors' do
+      expect(response_status).to eq 422
+      expect(json_response_body).to eq expected_body
+    end
+  end
+
+  context 'when params invalid' do
+    let(:params) { { user: {} } }
+    let(:expected_body) do
+      {
+        'error' => {
+          'user' => {
+            'email' => [
+              'is missing', 'must be an valid email', 'must be an unique'
+            ],
+            'password' => [
+              'is missing', 'must contain at least 8 symbols'
+            ]
+          }
         }
       }
     end
@@ -32,7 +50,7 @@ describe Api::Controllers::Users::Create do
       }
     end
     let(:params) { { user: user_attributes } }
-    let(:expected_response) { { 'error' => { 'email' => ['must be an unique'] } } }
+    let(:expected_response) { { 'error' => { 'user' => { 'email' => ['must be an unique'] } } } }
 
     before do
       UserRepository.new.create(

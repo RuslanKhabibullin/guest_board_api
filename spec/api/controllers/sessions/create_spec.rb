@@ -8,12 +8,30 @@ describe Api::Controllers::Sessions::Create do
     let(:expected_body) do
       {
         'error' => {
-          'email' => [
-            'is missing', 'must be an valid email'
-          ],
-          'password' => [
-            'is missing', 'must contain at least 8 symbols'
-          ]
+          'user' => ['is missing']
+        }
+      }
+    end
+
+    it 'responds with 422 status and errors' do
+      expect(response_status).to eq 422
+      expect(json_response_body).to eq expected_body
+    end
+  end
+
+  context 'when params invalid' do
+    let(:params) { { user: {} } }
+    let(:expected_body) do
+      {
+        'error' => {
+          'user' => {
+            'email' => [
+              'is missing', 'must be an valid email'
+            ],
+            'password' => [
+              'is missing', 'must contain at least 8 symbols'
+            ]
+          }
         }
       }
     end

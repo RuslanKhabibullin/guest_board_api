@@ -18,7 +18,11 @@ resource 'Sessions' do
     example_request 'Sign in with empty password', user: { email: 'user@email.com', password: '' } do
       expect(response_status).to eq 422
       expect(response).to match(
-        'error' => { 'password' => match_array(['must be filled', 'must contain at least 8 symbols']) }
+        'error' => {
+          'user' => {
+            'password' => match_array(['must be filled', 'must contain at least 8 symbols'])
+          }
+        }
       )
       check_cors_response_headers
     end

@@ -16,7 +16,11 @@ resource 'Users' do
     example_request 'Sign up with empty password', user: { email: 'user@email.com', password: '' } do
       expect(response_status).to eq 422
       expect(response).to match(
-        'error' => { 'password' => match_array(['must be filled', 'must contain at least 8 symbols']) }
+        'error' => {
+          'user' => {
+            'password' => match_array(['must be filled', 'must contain at least 8 symbols'])
+          }
+        }
       )
       check_cors_response_headers
     end
@@ -33,31 +37,12 @@ resource 'Users' do
       example_request 'Sign up with already existed email' do
         expect(response_status).to eq 422
         expect(response).to eq(
-          'error' => { 'email' => ['must be an unique'] }
-        )
-        check_cors_response_headers
-      end
-    end
-  end
-
-  get 'api/v1/users/me' do
-    it_behaves_like 'auth secured endpoint'
-
-    context 'when user token provided' do
-      include_context 'current user signed in'
-
-      let(:expected_response) do
-        {
-          'entity' => {
-            'id' => current_user.id,
-            'email' => current_user.email
+          'error' => {
+            'user' => {
+              'email' => ['must be an unique']
+            }
           }
-        }
-      end
-
-      example_request 'Get user data with token' do
-        expect(response_status).to eq 200
-        expect(response).to eq expected_response
+        )
         check_cors_response_headers
       end
     end

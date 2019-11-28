@@ -31,4 +31,23 @@ describe MessageRepository, type: :repository do
       it { is_expected.to be_empty }
     end
   end
+
+  describe '#load_user' do
+    subject(:query) { described_class.new.load_user(message, user_params) }
+
+    let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+    let!(:message) { described_class.new.create(user_id: user.id, content: 'Hello') }
+
+    context 'when user provided' do
+      let(:user_params) { { user: user } }
+
+      it { expect(query.user).to eq user }
+    end
+
+    context 'when user not provided' do
+      let(:user_params) { {} }
+
+      it { expect(query.user).to eq user }
+    end
+  end
 end

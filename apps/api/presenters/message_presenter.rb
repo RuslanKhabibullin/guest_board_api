@@ -1,5 +1,5 @@
 module Api
-  module Presenter
+  module Presenters
     module Message
       class SinglePresenter
         def initialize(message, with_header = true)
@@ -26,10 +26,7 @@ module Api
         def user_data
           return {} unless @message.user
 
-          {
-            id: @message.user.id,
-            email: @message.user.email
-          }
+          @message.user.to_h.slice(:id, :email)
         end
       end
 
@@ -41,7 +38,7 @@ module Api
         def to_json(*_args)
           data = {
             entities: @messages.map do |message|
-              Api::Presenter::Message::SinglePresenter.new(message, false).as_json
+              Api::Presenters::Message::SinglePresenter.new(message, false).as_json
             end
           }
 

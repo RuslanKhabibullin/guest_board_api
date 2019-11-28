@@ -10,7 +10,7 @@ module Api
             page: (params[:page] || 1).to_i
           )
 
-          status 200, Api::Presenter::Message::CollectionPresenter.new(messages).to_json
+          status 200, Api::Presenters::Message::CollectionPresenter.new(messages).to_json
         end
       end
     end

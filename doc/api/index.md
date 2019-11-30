@@ -7,12 +7,14 @@
 * [Create with invalid params](messages/create_with_invalid_params.md)
 * [Create with invalid params](messages/create_with_invalid_params.md)
 * [Create with invalid params](messages/create_with_invalid_params.md)
-* [Create with invalid params](messages/create_with_invalid_params.md)
+* [Delete message](messages/delete_message.md)
 * [Get user data with token](messages/get_user_data_with_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
+* [Modify another user entity](messages/modify_another_user_entity.md)
+* [Modify another user entity](messages/modify_another_user_entity.md)
 
 ## Sessions
 

@@ -1,6 +1,6 @@
 # Messages API
 
-## Create with invalid params
+## Modify another user entity
 
 ### PATCH api/v1/messages/:id
 
@@ -17,14 +17,14 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQyODIsImlhdCI6MTU3NTExNDQzMywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.vJmQsYWSjx1ZZdTpS4y0vmv3G8LuYy38nT7tI4TmkYU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQyODMsImlhdCI6MTU3NTExNDQzMywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.Z062MpxJ6vTKxXXePv94NDCGdckLGJZyOuMKzpJYZBQ
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/1250</pre>
+<pre>PATCH api/v1/messages/1251</pre>
 
 #### Body
 
@@ -44,22 +44,18 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 130</pre>
+Content-Length: 32</pre>
 
 #### Status
 
-<pre>200 OK</pre>
+<pre>403 Forbidden</pre>
 
 #### Body
 
 <pre>{
-  "entity": {
-    "id": 1250,
-    "content": "Bye!",
-    "created_at": "2019-11-30 11:47:13 UTC",
-    "user": {
-      "id": 4282,
-      "email": "current_user@email.com"
-    }
+  "error": {
+    "base": [
+      "forbidden"
+    ]
   }
 }</pre>

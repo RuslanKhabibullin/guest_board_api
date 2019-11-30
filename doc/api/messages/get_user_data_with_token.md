@@ -9,7 +9,7 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI4MzksImlhdCI6MTU3NDk2MDM4MiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.YzHcVTHOOnxAyqVGq-l_1v_nTazOjjh1Bo9UHQm8A0Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQyODAsImlhdCI6MTU3NTExNDQzMywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9._HsGCwftJoeh1Ifs8c_7JDBu0WTNJXLzlxEvhbWF6P0
 Host: example.org
 Cookie: </pre>
 
@@ -31,7 +31,7 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 96</pre>
+Content-Length: 136</pre>
 
 #### Status
 
@@ -42,10 +42,11 @@ Content-Length: 96</pre>
 <pre>{
   "entities": [
     {
-      "id": 614,
+      "id": 1248,
       "content": "Hello!",
+      "created_at": "2019-11-30 11:47:13 UTC",
       "user": {
-        "id": 2839,
+        "id": 4280,
         "email": "current_user@email.com"
       }
     }

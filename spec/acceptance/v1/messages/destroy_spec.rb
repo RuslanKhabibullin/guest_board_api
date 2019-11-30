@@ -16,7 +16,7 @@ resource 'Messages' do
 
       include_context 'current user signed in'
 
-      example_request 'delete message' do
+      example_request 'Delete message' do
         expect(response_status).to eq 204
         expect(MessageRepository.new.find(message.id)).to be_falsey
         check_cors_response_headers

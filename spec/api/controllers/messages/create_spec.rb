@@ -42,6 +42,7 @@ describe Api::Controllers::Messages::Create do
         'entity' => {
           'id' => kind_of(Integer),
           'content' => 'Hello!',
+          'created_at' => kind_of(String),
           'user' => {
             'id' => user.id,
             'email' => user.email

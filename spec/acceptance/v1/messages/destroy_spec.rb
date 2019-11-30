@@ -16,11 +16,22 @@ resource 'Messages' do
 
       include_context 'current user signed in'
 
-      example_request 'Create with invalid params' do
+      example_request 'delete message' do
         expect(response_status).to eq 204
         expect(MessageRepository.new.find(message.id)).to be_falsey
         check_cors_response_headers
       end
+    end
+
+    context 'when message user doesnt equal to current_user' do
+      let(:message_user) do
+        UserRepository.new.create(email: 'another_user@email.com', password: '12345678')
+      end
+      let!(:message) { MessageRepository.new.create(user_id: message_user.id, content: 'Hi!') }
+      let(:id) { message.id }
+
+      include_context 'current user signed in'
+      it_behaves_like 'entity authorization secured'
     end
   end
 end

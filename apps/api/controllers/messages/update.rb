@@ -22,8 +22,9 @@ module Api
         private
 
         def update_message(id:, message:)
-          message = repository.update(id, message)
-          repository.load_user(message, user: current_user)
+          message_entity = repository.find_with_user(id)
+          updated_message_entity = authorize(message_entity, :manage?) && repository.update(id, message)
+          repository.load_user(updated_message_entity, user: current_user)
         end
 
         def repository

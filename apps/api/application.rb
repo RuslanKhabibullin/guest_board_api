@@ -49,20 +49,23 @@ module Api
       }
 
       controller.prepare do
+        include ::Api::Controllers::Defaults
         include ::Api::Controllers::Authentication
+        include ::Api::Controllers::Authorization
       end
     end
 
     configure :development do
-      handle_exceptions false
+      handle_exceptions true
     end
 
     configure :test do
-      handle_exceptions false
+      handle_exceptions true
     end
 
     configure :production do
       scheme 'https'
+      handle_exceptions true
 
       assets do
         compile false

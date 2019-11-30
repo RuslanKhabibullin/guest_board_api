@@ -50,4 +50,13 @@ describe MessageRepository, type: :repository do
       it { expect(query.user).to eq user }
     end
   end
+
+  describe '#find_with_user' do
+    subject(:query) { described_class.new.find_with_user(message.id) }
+
+    let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+    let!(:message) { described_class.new.create(user_id: user.id, content: 'Hello') }
+
+    it { expect(query.user).to eq user }
+  end
 end

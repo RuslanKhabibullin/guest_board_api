@@ -20,6 +20,7 @@ resource 'Messages' do
             {
               'id' => message.id,
               'content' => message.content,
+              'created_at' => kind_of(String),
               'user' => {
                 'id' => current_user.id,
                 'email' => current_user.email
@@ -31,7 +32,7 @@ resource 'Messages' do
 
       example_request 'Get user data with token' do
         expect(response_status).to eq 200
-        expect(response).to eq expected_response
+        expect(response).to match expected_response
         check_cors_response_headers
       end
     end

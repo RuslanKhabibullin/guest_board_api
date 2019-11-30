@@ -43,6 +43,7 @@ describe Api::Controllers::Messages::Update do
         'entity' => {
           'id' => message.id,
           'content' => 'Bye!',
+          'created_at' => kind_of(String),
           'user' => {
             'id' => user.id,
             'email' => user.email

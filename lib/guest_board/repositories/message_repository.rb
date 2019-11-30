@@ -14,6 +14,10 @@ class MessageRepository < Hanami::Repository
       .to_a
   end
 
+  def find_with_user(id)
+    aggregate(:user).where(id: id).map_to(Message).one
+  end
+
   def load_user(message, user: nil)
     user ||= UserRepository.new.find(message.user_id)
 

@@ -8,8 +8,16 @@ module Api
           required(:id).filled(:int?)
         end
         def call(params)
-          MessageRepository.new.delete(params[:id])
+          message = repository.find_with_user(params[:id])
+          authorize(message, :manage?) && repository.delete(message.id)
+
           status 204, {}
+        end
+
+        private
+
+        def repository
+          @repository ||= MessageRepository.new
         end
       end
     end

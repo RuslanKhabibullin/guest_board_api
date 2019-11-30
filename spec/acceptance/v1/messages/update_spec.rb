@@ -45,6 +45,7 @@ resource 'Messages' do
             'entity' => {
               'id' => message.id,
               'content' => 'Bye!',
+              'created_at' => kind_of(String),
               'user' => {
                 'id' => current_user.id,
                 'email' => current_user.email
@@ -58,6 +59,18 @@ resource 'Messages' do
           expect(response).to match expected_response
           check_cors_response_headers
         end
+      end
+
+      context 'when message user doesnt equal to current_user' do
+        let(:message_user) do
+          UserRepository.new.create(email: 'another_user@email.com', password: '12345678')
+        end
+        let!(:message) { MessageRepository.new.create(user_id: message_user.id, content: 'Hi!') }
+        let(:id) { message.id }
+        let(:content) { 'Bye!' }
+
+        include_context 'current user signed in'
+        it_behaves_like 'entity authorization secured'
       end
     end
   end

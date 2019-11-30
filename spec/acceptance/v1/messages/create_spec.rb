@@ -40,6 +40,7 @@ resource 'Messages' do
             'entity' => {
               'id' => kind_of(Integer),
               'content' => 'Say hello to my little friend!',
+              'created_at' => kind_of(String),
               'user' => {
                 'id' => current_user.id,
                 'email' => current_user.email

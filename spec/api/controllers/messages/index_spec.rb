@@ -22,6 +22,7 @@ describe Api::Controllers::Messages::Index, type: :action do
           {
             'id' => message.id,
             'content' => 'Hello!',
+            'created_at' => kind_of(String),
             'user' => {
               'id' => user.id,
               'email' => 'user@email.com'
@@ -33,7 +34,7 @@ describe Api::Controllers::Messages::Index, type: :action do
 
     it 'returns success response with message and nested user' do
       expect(response_status).to eq 200
-      expect(json_response_body).to eq expected_response
+      expect(json_response_body).to match expected_response
     end
 
     context 'when pagination params present' do

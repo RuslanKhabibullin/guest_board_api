@@ -10,6 +10,7 @@ gem 'rack-cors'
 gem 'bcrypt'
 gem 'jwt'
 gem 'warden'
+gem 'pundit'
 
 group :development do
   gem 'shotgun', platforms: :ruby

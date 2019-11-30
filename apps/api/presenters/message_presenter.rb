@@ -11,6 +11,7 @@ module Api
           data = {
             id: @message.id,
             content: @message.content,
+            created_at: @message.created_at,
             user: user_data
           }
 

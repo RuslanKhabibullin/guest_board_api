@@ -3,7 +3,6 @@ module Api
     module Users
       class Create
         include Api::Action
-        include Api::Controllers::Defaults
         include Api::Controllers::Authentication::Skip
 
         def call(params)

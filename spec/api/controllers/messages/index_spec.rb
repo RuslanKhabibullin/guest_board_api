@@ -16,35 +16,18 @@ describe Api::Controllers::Messages::Index, type: :action do
   context 'when messages present' do
     let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
     let!(:message) { MessageRepository.new.create(user_id: user.id, content: 'Hello!') }
-    let(:expected_response) do
-      {
-        'entities' => [
-          {
-            'id' => message.id,
-            'content' => 'Hello!',
-            'created_at' => kind_of(String),
-            'user' => {
-              'id' => user.id,
-              'email' => 'user@email.com'
-            }
-          }
-        ]
-      }
-    end
 
     it 'returns success response with message and nested user' do
       expect(response_status).to eq 200
-      expect(json_response_body).to match expected_response
+      expect(json_response_body['entities'].first).to be_a_message_representation(message)
     end
 
     context 'when pagination params present' do
       let(:params) { { limit: 1, page: 2 } }
 
-      let(:expected_response) { { 'entities' => [] } }
-
       it 'returns empty response' do
         expect(response_status).to eq 200
-        expect(json_response_body).to eq expected_response
+        expect(json_response_body['entities']).to be_empty
       end
     end
   end

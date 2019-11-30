@@ -38,21 +38,12 @@ describe Api::Controllers::Messages::Update do
 
   context 'when params valid' do
     let(:params) { { id: message.id, message: { content: 'Bye!' } } }
-    let(:expected_response) do
-      {
-        'entity' => {
-          'id' => message.id,
-          'content' => 'Bye!',
-          'created_at' => kind_of(String),
-          'user' => {
-            'id' => user.id,
-            'email' => user.email
-          }
-        }
-      }
-    end
 
     it { expect(response_status).to eq 200 }
-    it { expect(json_response_body).to match expected_response }
+
+    it 'returns message representation' do
+      expect(json_response_body['entity'])
+        .to be_a_message_representation(Message.new(content: 'Bye!'))
+    end
   end
 end

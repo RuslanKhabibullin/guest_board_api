@@ -35,23 +35,11 @@ resource 'Messages' do
 
       context 'when params valid' do
         let(:content) { 'Say hello to my little friend!' }
-        let(:expected_response) do
-          {
-            'entity' => {
-              'id' => kind_of(Integer),
-              'content' => 'Say hello to my little friend!',
-              'created_at' => kind_of(String),
-              'user' => {
-                'id' => current_user.id,
-                'email' => current_user.email
-              }
-            }
-          }
-        end
 
         example_request 'Create with invalid params' do
           expect(response_status).to eq 201
-          expect(response).to match expected_response
+          expect(response['entity'])
+            .to be_a_message_representation(Message.new(content: content))
           check_cors_response_headers
         end
       end

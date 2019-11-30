@@ -37,21 +37,12 @@ describe Api::Controllers::Messages::Create do
 
   context 'when params valid' do
     let(:params) { { message: { content: 'Hello!' } } }
-    let(:expected_response) do
-      {
-        'entity' => {
-          'id' => kind_of(Integer),
-          'content' => 'Hello!',
-          'created_at' => kind_of(String),
-          'user' => {
-            'id' => user.id,
-            'email' => user.email
-          }
-        }
-      }
-    end
 
     it { expect(response_status).to eq 201 }
-    it { expect(json_response_body).to match expected_response }
+
+    it 'returns message' do
+      expect(json_response_body['entity'])
+        .to be_a_message_representation(Message.new(content: 'Hello!'))
+    end
   end
 end

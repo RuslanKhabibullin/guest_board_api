@@ -14,25 +14,9 @@ resource 'Messages' do
 
       let!(:message) { MessageRepository.new.create(content: 'Hello!', user_id: current_user.id) }
 
-      let(:expected_response) do
-        {
-          'entities' => [
-            {
-              'id' => message.id,
-              'content' => message.content,
-              'created_at' => kind_of(String),
-              'user' => {
-                'id' => current_user.id,
-                'email' => current_user.email
-              }
-            }
-          ]
-        }
-      end
-
       example_request 'Get user data with token' do
         expect(response_status).to eq 200
-        expect(response).to match expected_response
+        expect(response['entities'].first).to be_a_message_representation(message)
         check_cors_response_headers
       end
     end

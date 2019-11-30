@@ -12,7 +12,7 @@ module Api
         end
         def call(params)
           if params.valid?
-            message = update_message(params)
+            message = update_message(id: params[:id], message_attributes: params[:message])
             status 200, Api::Presenters::Message::SinglePresenter.new(message).to_json
           else
             status 422, Api::Presenters::ErrorPresenter.new(params).to_json
@@ -21,14 +21,14 @@ module Api
 
         private
 
-        def update_message(id:, message:)
-          message_entity = repository.find_with_user(id)
-          updated_message_entity = authorize(message_entity, :manage?) && repository.update(id, message)
-          repository.load_user(updated_message_entity, user: current_user)
-        end
+        def update_message(id:, message_attributes:)
+          old_message = MessageRepository.new.find_with_user(id)
+          authorize(old_message, :manage?)
 
-        def repository
-          @repository ||= MessageRepository.new
+          ::Messages::UpdateMessage
+            .new
+            .call(old_message: old_message, update_message_attributes: message_attributes)
+            .message
         end
       end
     end

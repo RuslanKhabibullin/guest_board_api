@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'jwt'
 gem 'warden'
 gem 'pundit'
+gem 'pusher'
 
 group :development do
   gem 'shotgun', platforms: :ruby

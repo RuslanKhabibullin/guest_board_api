@@ -1,6 +1,7 @@
 # Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
 
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start
 

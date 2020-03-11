@@ -1,21 +1,33 @@
-# Messages API
+# Sessions API
 
-## Get user data with token
+## Sign in with valid provider and user exists
 
-### GET api/v1/messages
+### POST api/v1/sign_in/oauth
+
+### Parameters
+
+| Name | Description | Required | Scope |
+|------|-------------|----------|-------|
+| provider | Oauth provider | true |  |
+| token | Oauth token | true |  |
+
 ### Request
 
 #### Headers
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQyODAsImlhdCI6MTU3NTExNDQzMywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9._HsGCwftJoeh1Ifs8c_7JDBu0WTNJXLzlxEvhbWF6P0
 Host: example.org
+Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>GET api/v1/messages</pre>
+<pre>POST api/v1/sign_in/oauth</pre>
+
+#### Body
+
+<pre>provider=google&token=token</pre>
 
 ### Response
 
@@ -31,24 +43,14 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 136</pre>
+Content-Length: 157</pre>
 
 #### Status
 
-<pre>200 OK</pre>
+<pre>201 Created</pre>
 
 #### Body
 
 <pre>{
-  "entities": [
-    {
-      "id": 1248,
-      "content": "Hello!",
-      "created_at": "2019-11-30 11:47:13 UTC",
-      "user": {
-        "id": 4280,
-        "email": "current_user@email.com"
-      }
-    }
-  ]
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzODEsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.I0whKBFFu_AefkHPCAXwBUeMZ8XF5e6_3p3Ov3Jdpeo"
 }</pre>

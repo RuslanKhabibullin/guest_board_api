@@ -1,14 +1,13 @@
 # Messages API
 
-## Modify another user entity
+## Create with valid params
 
-### PATCH api/v1/messages/:id
+### POST api/v1/messages
 
 ### Parameters
 
 | Name | Description | Required | Scope |
 |------|-------------|----------|-------|
-| id | Message id | true |  |
 | content | Message content | true | message |
 
 ### Request
@@ -17,18 +16,18 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNzUsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.zW31Cv1uktdS180G3CPWn-Wj8zs1lUHgT8Ud07bchow
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNjgsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.woQrEmT70EuFRCt5IsV6qKhjFcuVhqfkd3ubKgvc7gY
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/612</pre>
+<pre>POST api/v1/messages</pre>
 
 #### Body
 
-<pre>message[content]=Bye%21</pre>
+<pre>message[content]=Say+hello+to+my+little+friend%21</pre>
 
 ### Response
 
@@ -44,18 +43,22 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 32</pre>
+Content-Length: 155</pre>
 
 #### Status
 
-<pre>403 Forbidden</pre>
+<pre>201 Created</pre>
 
 #### Body
 
 <pre>{
-  "error": {
-    "base": [
-      "forbidden"
-    ]
+  "entity": {
+    "id": 606,
+    "content": "Say hello to my little friend!",
+    "created_at": "2020-03-11 10:53:46 UTC",
+    "user": {
+      "id": 1368,
+      "email": "current_user@email.com"
+    }
   }
 }</pre>

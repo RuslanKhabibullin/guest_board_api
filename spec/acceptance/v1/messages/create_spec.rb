@@ -36,7 +36,7 @@ resource 'Messages' do
       context 'when params valid' do
         let(:content) { 'Say hello to my little friend!' }
 
-        example_request 'Create with invalid params' do
+        example_request 'Create with valid params' do
           expect(response_status).to eq 201
           expect(response['entity'])
             .to be_a_message_representation(Message.new(content: content))

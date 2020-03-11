@@ -6,9 +6,9 @@
 * [Create with invalid params](messages/create_with_invalid_params.md)
 * [Create with invalid params](messages/create_with_invalid_params.md)
 * [Create with invalid params](messages/create_with_invalid_params.md)
-* [Create with invalid params](messages/create_with_invalid_params.md)
+* [Create with valid params](messages/create_with_valid_params.md)
 * [Delete message](messages/delete_message.md)
-* [Get user data with token](messages/get_user_data_with_token.md)
+* [Get message data with token](messages/get_message_data_with_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
 * [Get user data without token](messages/get_user_data_without_token.md)
@@ -20,6 +20,9 @@
 
 * [Sign in with empty password](sessions/sign_in_with_empty_password.md)
 * [Sign in with invalid password](sessions/sign_in_with_invalid_password.md)
+* [Sign in with invalid provider](sessions/sign_in_with_invalid_provider.md)
+* [Sign in with valid provider and user exists](sessions/sign_in_with_valid_provider_and_user_exists.md)
+* [Sign in with valid provider and user exists](sessions/sign_in_with_valid_provider_and_user_exists.md)
 * [Sing in with valid data](sessions/sing_in_with_valid_data.md)
 
 ## Users

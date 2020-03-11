@@ -7,6 +7,14 @@ class Password
     def cost_factor
       Hanami.env == 'test' ? 1 : 12
     end
+
+    def generate
+      SecureRandom.base64(12)
+    end
+
+    def generate_and_encrypt
+      encrypt(generate)
+    end
   end
 
   attr_reader :password_digest

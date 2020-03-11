@@ -1,15 +1,15 @@
-# Messages API
+# Sessions API
 
-## Modify another user entity
+## Sign in with invalid provider
 
-### PATCH api/v1/messages/:id
+### POST api/v1/sign_in/oauth
 
 ### Parameters
 
 | Name | Description | Required | Scope |
 |------|-------------|----------|-------|
-| id | Message id | true |  |
-| content | Message content | true | message |
+| provider | Oauth provider | true |  |
+| token | Oauth token | true |  |
 
 ### Request
 
@@ -17,18 +17,17 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNzUsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.zW31Cv1uktdS180G3CPWn-Wj8zs1lUHgT8Ud07bchow
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/612</pre>
+<pre>POST api/v1/sign_in/oauth</pre>
 
 #### Body
 
-<pre>message[content]=Bye%21</pre>
+<pre>provider=fb&token=token</pre>
 
 ### Response
 
@@ -44,18 +43,18 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 32</pre>
+Content-Length: 49</pre>
 
 #### Status
 
-<pre>403 Forbidden</pre>
+<pre>400 Bad Request</pre>
 
 #### Body
 
 <pre>{
   "error": {
-    "base": [
-      "forbidden"
+    "provider": [
+      "must be one of: google"
     ]
   }
 }</pre>

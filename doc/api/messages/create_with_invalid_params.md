@@ -17,14 +17,14 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQyODIsImlhdCI6MTU3NTExNDQzMywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.vJmQsYWSjx1ZZdTpS4y0vmv3G8LuYy38nT7tI4TmkYU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNzQsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.MfEQjQ5p9y1TF72wWBK19J-dj79QY1z0ilTwQj1l9ys
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/1250</pre>
+<pre>PATCH api/v1/messages/611</pre>
 
 #### Body
 
@@ -44,7 +44,7 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 130</pre>
+Content-Length: 129</pre>
 
 #### Status
 
@@ -54,11 +54,11 @@ Content-Length: 130</pre>
 
 <pre>{
   "entity": {
-    "id": 1250,
+    "id": 611,
     "content": "Bye!",
-    "created_at": "2019-11-30 11:47:13 UTC",
+    "created_at": "2020-03-11 10:53:46 UTC",
     "user": {
-      "id": 4282,
+      "id": 1374,
       "email": "current_user@email.com"
     }
   }

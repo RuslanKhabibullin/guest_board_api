@@ -12,6 +12,7 @@ gem 'jwt'
 gem 'warden'
 gem 'pundit'
 gem 'pusher'
+gem 'httparty'
 
 group :development do
   gem 'shotgun', platforms: :ruby
@@ -27,5 +28,6 @@ group :test do
   gem 'rspec'
   gem 'database_cleaner'
   gem 'rack-test'
+  gem 'webmock'
   gem 'simplecov', require: false
 end

@@ -10,6 +10,8 @@
 |------|-------------|----------|-------|
 | email | User email | true | user |
 | password | User password | true | user |
+| first_name | User first name | true | user |
+| last_name | User last name | true | user |
 
 ### Request
 
@@ -27,7 +29,7 @@ Cookie: </pre>
 
 #### Body
 
-<pre>user[email]=user%40email.com&user[password]=</pre>
+<pre>user[email]=user%40email.com&user[password]=&user[first_name]=User&user[last_name]=Test</pre>
 
 ### Response
 

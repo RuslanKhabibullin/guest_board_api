@@ -10,6 +10,8 @@
 |------|-------------|----------|-------|
 | email | User email | true | user |
 | password | User password | true | user |
+| first_name | User first name | true | user |
+| last_name | User last name | true | user |
 
 ### Request
 
@@ -27,7 +29,7 @@ Cookie: </pre>
 
 #### Body
 
-<pre>user[email]=user%40email.com&user[password]=12345678</pre>
+<pre>user[email]=user%40email.com&user[password]=12345678&user[first_name]=User&user[last_name]=Test</pre>
 
 ### Response
 
@@ -52,5 +54,5 @@ Content-Length: 157</pre>
 #### Body
 
 <pre>{
-  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNTEsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.YPUCvoXBkOQrBlqRTMxGnJhtUpWQ0A0XNmJhlGDu_vw"
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOTcsImlhdCI6MTU4MzkzNTc2MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.-PbWoKcgpK3gMys5ybF0unoNlJiowDWi6-PDMknBm_g"
 }</pre>

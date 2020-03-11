@@ -9,7 +9,7 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNTMsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.PEwl9nTpbZ46uvmUrkv0AJewLKNBIEVGSFvSd_hfb9A
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMzOTksImlhdCI6MTU4MzkzNTc2MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.kDFcqCoFfYVJdyIvFX7Kyji-KBeSjKiGupz9luo2_Mk
 Host: example.org
 Cookie: </pre>
 
@@ -31,7 +31,7 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 55</pre>
+Content-Length: 94</pre>
 
 #### Status
 
@@ -41,7 +41,9 @@ Content-Length: 55</pre>
 
 <pre>{
   "entity": {
-    "id": 2053,
-    "email": "current_user@email.com"
+    "id": 3399,
+    "email": "current_user@email.com",
+    "first_name": "Test",
+    "last_name": "User"
   }
 }</pre>

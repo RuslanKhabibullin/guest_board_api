@@ -9,6 +9,7 @@ Simple API for chat with one common room. Stack:
 - `Hanami` framework
 - `JWT` authentication strategy
 - `CORS` protection
+- `Google Oauth` strategies
 - Websockets implemented by `Pusher` service
 
 ## Setup

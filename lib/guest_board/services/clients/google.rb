@@ -11,7 +11,7 @@ module Clients
     end
 
     def user_info
-      info = self.class.get('/tokeninfo', id_token: token).parsed_response
+      info = self.class.get('/tokeninfo', query: { id_token: token }).parsed_response
 
       [
         {

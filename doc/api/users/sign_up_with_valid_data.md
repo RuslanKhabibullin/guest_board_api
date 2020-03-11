@@ -52,5 +52,5 @@ Content-Length: 157</pre>
 #### Body
 
 <pre>{
-  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzODIsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.W7iZpz8VktiN1sfwdCTj-mfef5jcn1BurBNDzQLWwho"
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNTEsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.YPUCvoXBkOQrBlqRTMxGnJhtUpWQ0A0XNmJhlGDu_vw"
 }</pre>

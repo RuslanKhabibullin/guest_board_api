@@ -9,7 +9,7 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNzIsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.c3wZUvaQXqRlHltJK7ZRZ8cuTZYty3vi_2N_A_BclnM
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNDAsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.S-LfqIanrIyX4AgHETJvug0ZKO_O_N3PZeNpEshDNLM
 Host: example.org
 Cookie: </pre>
 
@@ -42,11 +42,11 @@ Content-Length: 135</pre>
 <pre>{
   "entities": [
     {
-      "id": 609,
+      "id": 892,
       "content": "Hello!",
-      "created_at": "2020-03-11 10:53:46 UTC",
+      "created_at": "2020-03-11 13:21:33 UTC",
       "user": {
-        "id": 1372,
+        "id": 2040,
         "email": "current_user@email.com"
       }
     }

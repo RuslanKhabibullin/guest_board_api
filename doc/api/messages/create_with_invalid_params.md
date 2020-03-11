@@ -17,14 +17,14 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNzQsImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.MfEQjQ5p9y1TF72wWBK19J-dj79QY1z0ilTwQj1l9ys
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNDIsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.TWLb9GSkjs_SKHgUi-GCFhBSlNUvAwtpRvvIUZx-Hy8
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/611</pre>
+<pre>PATCH api/v1/messages/894</pre>
 
 #### Body
 
@@ -54,11 +54,11 @@ Content-Length: 129</pre>
 
 <pre>{
   "entity": {
-    "id": 611,
+    "id": 894,
     "content": "Bye!",
-    "created_at": "2020-03-11 10:53:46 UTC",
+    "created_at": "2020-03-11 13:21:33 UTC",
     "user": {
-      "id": 1374,
+      "id": 2042,
       "email": "current_user@email.com"
     }
   }

@@ -1,15 +1,15 @@
-# Messages API
+# Pusher API
 
-## Modify another user entity
+## auth without token
 
-### PATCH api/v1/messages/:id
+### POST api/v1/pusher/authenticate
 
 ### Parameters
 
 | Name | Description | Required | Scope |
 |------|-------------|----------|-------|
-| id | Message id | true |  |
-| content | Message content | true | message |
+| channel_name | Pusher channel name | true |  |
+| socket_id | Pusher socket id | true |  |
 
 ### Request
 
@@ -17,18 +17,17 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNDMsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.unruOpIH_8JPq39XYlnJ-Ux1HpRZXGsOKMZdxgrpDiQ
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/895</pre>
+<pre>POST api/v1/pusher/authenticate</pre>
 
 #### Body
 
-<pre>message[content]=Bye%21</pre>
+<pre>channel_name=test&socket_id=23</pre>
 
 ### Response
 
@@ -55,7 +54,7 @@ Content-Length: 32</pre>
 <pre>{
   "error": {
     "base": [
-      "forbidden"
+      "Forbidden"
     ]
   }
 }</pre>

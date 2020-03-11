@@ -16,6 +16,11 @@
 * [Modify another user entity](messages/modify_another_user_entity.md)
 * [Modify another user entity](messages/modify_another_user_entity.md)
 
+## Pusher
+
+* [auth token provided](pusher/auth_token_provided.md)
+* [auth without token](pusher/auth_without_token.md)
+
 ## Sessions
 
 * [Sign in with empty password](sessions/sign_in_with_empty_password.md)

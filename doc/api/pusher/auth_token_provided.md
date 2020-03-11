@@ -1,15 +1,15 @@
-# Messages API
+# Pusher API
 
-## Modify another user entity
+## auth token provided
 
-### PATCH api/v1/messages/:id
+### POST api/v1/pusher/authenticate
 
 ### Parameters
 
 | Name | Description | Required | Scope |
 |------|-------------|----------|-------|
-| id | Message id | true |  |
-| content | Message content | true | message |
+| channel_name | Pusher channel name | true |  |
+| socket_id | Pusher socket id | true |  |
 
 ### Request
 
@@ -17,18 +17,18 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNDMsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.unruOpIH_8JPq39XYlnJ-Ux1HpRZXGsOKMZdxgrpDiQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwNDUsImlhdCI6MTU4MzkzMjg5MywiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.wwcQxC4QnFOMawep-SdhZ52bh7N-2MUYO9kPli6qYKM
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>PATCH api/v1/messages/895</pre>
+<pre>POST api/v1/pusher/authenticate</pre>
 
 #### Body
 
-<pre>message[content]=Bye%21</pre>
+<pre>channel_name=test&socket_id=23</pre>
 
 ### Response
 
@@ -44,18 +44,12 @@ X-XSS-Protection: 1; mode=block
 Content-Security-Policy: form-action &#39;self&#39;; frame-ancestors &#39;self&#39;; base-uri &#39;self&#39;; default-src &#39;none&#39;; script-src &#39;self&#39;; connect-src &#39;self&#39;; img-src &#39;self&#39; https: data:; style-src &#39;self&#39; &#39;unsafe-inline&#39; https:; font-src &#39;self&#39;; object-src &#39;none&#39;; plugin-types application/pdf; child-src &#39;self&#39;; frame-src &#39;self&#39;; media-src &#39;self&#39;
 Content-Type: application/json; charset=utf-8
 Vary: Origin
-Content-Length: 32</pre>
+Content-Length: 4</pre>
 
 #### Status
 
-<pre>403 Forbidden</pre>
+<pre>200 OK</pre>
 
 #### Body
 
-<pre>{
-  "error": {
-    "base": [
-      "forbidden"
-    ]
-  }
-}</pre>
+<pre>true</pre>

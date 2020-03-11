@@ -16,14 +16,14 @@
 
 <pre>Accept: application/json
 Origin: localhost
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEzNjksImlhdCI6MTU4MzkyNDAyNiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.PPWP9GT0KLWhVH1wWRpk39jh9d6hGOqExt1XSr3Uc_g
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIwMzcsImlhdCI6MTU4MzkzMjg5MiwiaXNzIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbSJ9.aMBYEBS8PLoRL73nEebIAOmYdCA0WmfbEXkTGBQmMLg
 Host: example.org
 Content-Type: application/x-www-form-urlencoded
 Cookie: </pre>
 
 #### Route
 
-<pre>DELETE api/v1/messages/607</pre>
+<pre>DELETE api/v1/messages/890</pre>
 
 ### Response
 

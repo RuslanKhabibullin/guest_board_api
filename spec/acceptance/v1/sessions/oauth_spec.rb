@@ -24,7 +24,7 @@ resource 'Sessions' do
 
     context 'when user present on provider service' do
       before do
-        stub_request(:get, 'https://www.googleapis.com/oauth2/v3/tokeninfo')
+        stub_request(:get, 'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=token')
           .to_return(
             status: 200,
             body: oauth_response.to_json,

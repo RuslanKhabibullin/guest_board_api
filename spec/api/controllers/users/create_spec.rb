@@ -30,7 +30,9 @@ describe Api::Controllers::Users::Create do
             ],
             'password' => [
               'is missing', 'must contain at least 8 symbols'
-            ]
+            ],
+            'first_name' => ['is missing'],
+            'last_name' => ['is missing']
           }
         }
       }
@@ -46,17 +48,15 @@ describe Api::Controllers::Users::Create do
     let(:user_attributes) do
       {
         email: 'user@email.com',
-        password: '12345678'
+        password: '12345678',
+        first_name: 'User',
+        last_name: 'Test'
       }
     end
     let(:params) { { user: user_attributes } }
     let(:expected_response) { { 'error' => { 'user' => { 'email' => ['must be an unique'] } } } }
 
-    before do
-      UserRepository.new.create(
-        email: user_attributes[:email], password: Password.encrypt(user_attributes[:password])
-      )
-    end
+    before { create_user(user_attributes) }
 
     it 'responds with 422 status and errors' do
       expect(response_status).to eq 422
@@ -69,7 +69,9 @@ describe Api::Controllers::Users::Create do
       {
         user: {
           email: 'user@email.com',
-          password: '12345678'
+          password: '12345678',
+          first_name: 'User',
+          last_name: 'Test'
         }
       }
     end

@@ -6,7 +6,7 @@ module Api
       end
 
       def to_json(*_args)
-        JSON.generate(entity: @user.to_h.slice(:id, :email))
+        JSON.generate(entity: @user.to_h.slice(:id, :email, :first_name, :last_name))
       end
     end
   end

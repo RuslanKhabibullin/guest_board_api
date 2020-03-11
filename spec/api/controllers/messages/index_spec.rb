@@ -14,7 +14,7 @@ describe Api::Controllers::Messages::Index, type: :action do
   end
 
   context 'when messages present' do
-    let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+    let(:user) { create_user(email: 'user@email.com', password: '12345678') }
     let!(:message) { MessageRepository.new.create(user_id: user.id, content: 'Hello!') }
 
     it 'returns success response with message and nested user' do

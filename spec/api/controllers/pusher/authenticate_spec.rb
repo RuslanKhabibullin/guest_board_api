@@ -21,7 +21,7 @@ describe Api::Controllers::Pusher::Authenticate do
   end
 
   context 'when current_user present' do
-    let!(:user) { UserRepository.new.create(email: 'user@email.com', password: '1234567') }
+    let!(:user) { create_user(email: 'user@email.com', password: '1234567') }
     let(:authenticator_mock) do
       double('Authenticator', authenticate: true, user: user)
     end

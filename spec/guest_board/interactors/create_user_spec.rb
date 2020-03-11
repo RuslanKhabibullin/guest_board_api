@@ -2,7 +2,12 @@ describe CreateUser do
   subject(:interactor) { described_class.new(user_attributes).call }
 
   let(:user_attributes) do
-    { email: 'user@email.com', password: '1234567' }
+    {
+      email: 'user@email.com',
+      password: '1234567',
+      first_name: 'Test',
+      last_name: 'User'
+    }
   end
 
   context 'when user not exists' do
@@ -12,12 +17,7 @@ describe CreateUser do
   end
 
   context 'when user already exists' do
-    before do
-      UserRepository.new.create(
-        email: user_attributes[:email],
-        password: Password.encrypt(user_attributes[:password])
-      )
-    end
+    before { create_user(user_attributes) }
 
     it { is_expected.not_to be_successful }
   end

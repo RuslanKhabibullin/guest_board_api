@@ -10,12 +10,12 @@ resource 'Sessions' do
     parameter :email, 'User email', required: true, scope: :user
     parameter :password, 'User password', scope: :user, required: true
 
-    before { UserRepository.new.create(email: email, password: Password.encrypt(password)) }
+    before { create_user(email: email, password: password) }
 
     let(:email) { 'user@email.com' }
     let(:password) { '12345678' }
 
-    example_request 'Sign in with empty password', user: { email: 'user@email.com', password: '' } do
+    example_request 'Sign in with empty password', user: { password: '' } do
       expect(response_status).to eq 422
       expect(response).to match(
         'error' => {
@@ -27,7 +27,7 @@ resource 'Sessions' do
       check_cors_response_headers
     end
 
-    example_request 'Sign in with invalid password', user: { email: 'user@email.com', password: '12345670' } do
+    example_request 'Sign in with invalid password', user: { password: '12345670' } do
       expect(response_status).to eq 401
       expect(response).to eq('error' => { 'base' => ['unauthorized user'] })
       check_cors_response_headers

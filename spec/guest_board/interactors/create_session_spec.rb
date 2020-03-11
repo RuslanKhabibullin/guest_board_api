@@ -13,12 +13,7 @@ describe CreateSession do
   end
 
   context 'when user exists' do
-    before do
-      UserRepository.new.create(
-        email: user_attributes[:email],
-        password: Password.encrypt(user_attributes[:password])
-      )
-    end
+    before { create_user(user_attributes) }
 
     it { is_expected.to be_successful }
     it { expect(interactor.user).to be_kind_of(User) }

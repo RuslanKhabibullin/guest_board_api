@@ -29,7 +29,9 @@ class CreateUser
   def user_creation_attributes
     {
       email: user_attributes[:email],
-      password: password_service.encrypt(user_attributes[:password])
+      password: password_service.encrypt(user_attributes[:password]),
+      first_name: user_attributes[:first_name],
+      last_name: user_attributes[:last_name]
     }
   end
 

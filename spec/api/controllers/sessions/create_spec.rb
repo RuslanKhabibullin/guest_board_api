@@ -76,9 +76,7 @@ describe Api::Controllers::Sessions::Create do
     let(:expected_response) { { 'token' => kind_of(String) } }
 
     before do
-      UserRepository.new.create(
-        email: user_attributes[:email], password: Password.encrypt(user_attributes[:password])
-      )
+      create_user(email: user_attributes[:email], password: user_attributes[:password])
     end
 
     it 'responds with 201 status and token' do

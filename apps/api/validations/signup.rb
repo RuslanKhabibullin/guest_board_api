@@ -10,6 +10,8 @@ module Api
         required(:user).schema do
           required(:email).filled(:str?, :email?) { unique_email? }
           required(:password) { filled? & str? & long_password? }
+          required(:first_name).filled(:str?)
+          required(:last_name).filled(:str?)
         end
       end
     end

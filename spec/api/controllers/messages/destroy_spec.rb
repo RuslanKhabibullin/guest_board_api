@@ -1,7 +1,7 @@
 describe Api::Controllers::Messages::Destroy do
   subject(:action) { described_class.new(authenticator: authenticator_mock) }
 
-  let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+  let(:user) { create_user(email: 'user@email.com', password: '12345678') }
   let!(:message) { MessageRepository.new.create(user_id: user.id, content: 'Hello') }
   let(:params) { { id: message.id } }
 

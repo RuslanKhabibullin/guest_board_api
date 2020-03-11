@@ -24,9 +24,7 @@ resource 'Messages' do
     end
 
     context 'when message user doesnt equal to current_user' do
-      let(:message_user) do
-        UserRepository.new.create(email: 'another_user@email.com', password: '12345678')
-      end
+      let(:message_user) { create_user(email: 'another_user@email.com') }
       let!(:message) { MessageRepository.new.create(user_id: message_user.id, content: 'Hi!') }
       let(:id) { message.id }
 

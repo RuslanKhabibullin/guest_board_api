@@ -6,8 +6,6 @@ resource 'Sessions' do
 
   subject(:response) { JSON.parse(response_body) }
 
-  let(:user_repository) { UserRepository.new }
-
   post 'api/v1/sign_in/oauth' do
     parameter :provider, 'Oauth provider', required: true
     parameter :token, 'Oauth token', required: true
@@ -44,12 +42,11 @@ resource 'Sessions' do
       example_request 'Sign in with valid provider and user exists', provider: 'google', token: 'token' do
         expect(response_status).to eq 201
         expect(response).to match('token' => kind_of(String))
-        expect(user_repository.by_email('user@email.com')).to be_truthy
         check_cors_response_headers
       end
 
       context 'when user already exists' do
-        before { user_repository.create(oauth_response.merge(password: '12345678')) }
+        before { create_user(email: 'user@email.com') }
 
         example_request 'Sign in with valid provider and user exists', provider: 'google', token: 'token' do
           expect(response_status).to eq 201

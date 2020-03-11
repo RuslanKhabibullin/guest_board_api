@@ -9,11 +9,15 @@ resource 'Users' do
   post 'api/v1/sign_up' do
     parameter :email, 'User email', required: true, scope: :user
     parameter :password, 'User password', scope: :user, required: true
+    parameter :first_name, 'User first name', scope: :user, required: true
+    parameter :last_name, 'User last name', scope: :user, required: true
 
     let(:email) { 'user@email.com' }
+    let(:first_name) { 'User' }
+    let(:last_name) { 'Test' }
     let(:password) { '12345678' }
 
-    example_request 'Sign up with empty password', user: { email: 'user@email.com', password: '' } do
+    example_request 'Sign up with empty password', user: { password: '' } do
       expect(response_status).to eq 422
       expect(response).to match(
         'error' => {
@@ -32,7 +36,7 @@ resource 'Users' do
     end
 
     context 'when user already exists' do
-      before { UserRepository.new.create(email: email, password: Password.encrypt(password)) }
+      before { create_user(email: email, password: password) }
 
       example_request 'Sign up with already existed email' do
         expect(response_status).to eq 422

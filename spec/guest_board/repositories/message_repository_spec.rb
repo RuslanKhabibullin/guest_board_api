@@ -8,7 +8,7 @@ describe MessageRepository, type: :repository do
 
     context 'when messages present' do
       before do
-        user = UserRepository.new.create(email: 'user@email.com', password: '12345678')
+        user = create_user
         described_class.new.create(user_id: user.id, content: 'Hello!')
       end
 
@@ -22,7 +22,7 @@ describe MessageRepository, type: :repository do
 
     context 'when pagination params provided' do
       before do
-        user = UserRepository.new.create(email: 'user@email.com', password: '12345678')
+        user = create_user
         described_class.new.create(user_id: user.id, content: 'Hello!')
       end
 
@@ -35,7 +35,7 @@ describe MessageRepository, type: :repository do
   describe '#load_user' do
     subject(:query) { described_class.new.load_user(message, user_params) }
 
-    let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+    let(:user) { create_user }
     let!(:message) { described_class.new.create(user_id: user.id, content: 'Hello') }
 
     context 'when user provided' do
@@ -54,7 +54,7 @@ describe MessageRepository, type: :repository do
   describe '#find_with_user' do
     subject(:query) { described_class.new.find_with_user(message.id) }
 
-    let(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+    let(:user) { create_user }
     let!(:message) { described_class.new.create(user_id: user.id, content: 'Hello') }
 
     it { expect(query.user).to eq user }

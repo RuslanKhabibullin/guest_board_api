@@ -1,12 +1,16 @@
 describe Api::Controllers::Users::Show do
   subject(:action) { described_class.new(authenticator: authenticator_mock) }
 
-  let!(:user) { UserRepository.new.create(email: 'user@email.com', password: '12345678') }
+  let!(:user) do
+    create_user(email: 'user@email.com', password: '12345678', first_name: 'User', last_name: 'Test')
+  end
   let(:expected_response) do
     {
       'entity' => {
         'id' => user.id,
-        'email' => 'user@email.com'
+        'email' => 'user@email.com',
+        'first_name' => 'User',
+        'last_name' => 'Test'
       }
     }
   end

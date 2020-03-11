@@ -27,7 +27,7 @@ module Api
         def user_data
           return {} unless @message.user
 
-          @message.user.to_h.slice(:id, :email)
+          @message.user.to_h.slice(:id, :email, :first_name, :last_name)
         end
       end
 

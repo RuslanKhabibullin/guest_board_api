@@ -8,6 +8,14 @@ module Api
         end
       end
 
+      module Soft
+        private
+
+        def authenticate!
+          authenticate
+        end
+      end
+
       def self.included(action)
         action.class_eval do
           before :authenticate!
@@ -26,6 +34,10 @@ module Api
 
       def authenticate!
         authenticator.authenticate!
+      end
+
+      def authenticate
+        authenticator.authenticate
       end
 
       def authenticator

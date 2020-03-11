@@ -8,6 +8,7 @@ shared_context 'action specs' do
   let(:authenticator_mock) do
     double('Authenticator',
       'authenticate!' => true,
+      authenticate: true,
       user: respond_to?(:user) ? user : nil)
   end
 end

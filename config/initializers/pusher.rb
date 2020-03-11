@@ -3,6 +3,10 @@ if Hanami.env == 'test'
     def trigger(*_args)
       true
     end
+
+    def authenticate(*_args)
+      true
+    end
   end
   PUSHER_CLIENT = PusherClient.new
 else

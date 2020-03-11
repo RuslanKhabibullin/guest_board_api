@@ -4,7 +4,7 @@ module Messages
   class BaseMessageService
     include Hanami::Interactor
 
-    CHANNEL_NAME = 'chat'.freeze
+    CHANNEL_NAME = 'presence-chat'.freeze
 
     attr_reader :message_repository, :pusher_client
 

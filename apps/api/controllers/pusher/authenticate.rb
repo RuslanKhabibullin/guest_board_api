@@ -14,6 +14,7 @@ module Api
             response = ::PUSHER_CLIENT.authenticate(params[:channel_name], params[:socket_id], user_data)
             status 200, JSON.generate(response)
           else
+            # According to Pusher documentation https://pusher.com/docs/channels/server_api/authenticating-users
             status 403, error_json('Forbidden')
           end
         end
@@ -24,7 +25,9 @@ module Api
           {
             user_id: current_user.id,
             user_info: {
-              email: current_user.email
+              email: current_user.email,
+              first_name: current_user.first_name,
+              last_name: current_user.last_name
             }
           }
         end

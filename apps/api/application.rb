@@ -1,5 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require 'hanami/middleware/body_parser'
 
 module Api
   class Application < Hanami::Application
@@ -23,6 +24,7 @@ module Api
           resource '*', headers: :any, methods: %i[get post put patch delete options head]
         end
       end
+      middleware.use Hanami::Middleware::BodyParser, :json
       middleware.use Warden::Manager do |manager|
         manager.default_strategies :jwt_strategy
         manager.failure_app = ::Api::Controllers::Unauthorized

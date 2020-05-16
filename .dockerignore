@@ -1,7 +1,6 @@
 DS_Store
 .bin
 .git
-.gitignore
 .bundleignore
 .bundle
 .byebug_history

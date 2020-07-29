@@ -10,9 +10,10 @@ module Messages
 
       push_to_channel(
         message_updated_event_name,
-        @message.to_h.slice(:id, :content, :created_at).merge(
-          user: { id: @message.user.id, email: @message.user.email }
-        )
+        @message
+          .to_h
+          .slice(:id, :content, :created_at)
+          .merge(user: @message.user.to_h.slice(:id, :email, :first_name, :last_name))
       )
     end
 

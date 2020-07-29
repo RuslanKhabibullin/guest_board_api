@@ -9,7 +9,10 @@ module Messages
       @message = message_repository.load_user(@message, user: user)
       push_to_channel(
         message_created_event_name,
-        @message.to_h.slice(:id, :content, :created_at).merge(user: { id: user.id, email: user.email })
+        @message
+          .to_h
+          .slice(:id, :content, :created_at)
+          .merge(user: user.to_h.slice(:id, :email, :first_name, :last_name))
       )
     end
 

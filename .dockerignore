@@ -1,0 +1,10 @@
+DS_Store
+.bin
+.git
+.bundleignore
+.bundle
+.byebug_history
+tmp
+log
+coverage/
+.env.*.local
